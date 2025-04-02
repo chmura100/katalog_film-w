@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-4">
+      {% if movie.poster_path %}
+        <img src="https://image.tmdb.org/t/p/w500{{ movie.poster_path }}" alt="{{ movie.title }}" class="img-fluid">
+      {% endif %}
+    </div>
+    <div class="col-md-8">
+      <h2>{{ movie.title }}</h2>
+      <p><strong>Data premiery:</strong> {{ movie.release_date }}</p>
+      <p><strong>Ocena:</strong> {{ movie.vote_average }}/10</p>
+      <p><strong>Opis:</strong> {{ movie.overview }}</p>
+      <a href="{{ url_for('trending') }}" class="btn btn-secondary mt-3">← Wróć do listy</a>
+    </div>
+  </div>
+{% endblock %}
